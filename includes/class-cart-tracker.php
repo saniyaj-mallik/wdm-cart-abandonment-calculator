@@ -76,7 +76,7 @@ class WDM_Cart_Tracker {
 	}
 
 	/**
-	 * Mark cart as completed when order is processed
+	 * Delete cart record when order is processed
 	 *
 	 * @param int $order_id Order ID.
 	 */
@@ -86,14 +86,10 @@ class WDM_Cart_Tracker {
 		
 		$session_id = WC()->session->get_customer_id();
 		
-		$wpdb->update(
+		$wpdb->delete(
 			$table_name,
-			array(
-				'status'      => 'completed',
-				'modified_at' => current_time( 'mysql' ),
-				'order_id'    => $order_id,
-			),
-			array( 'session_id' => $session_id )
+			array( 'session_id' => $session_id ),
+			array( '%s' )
 		);
 	}
 }
