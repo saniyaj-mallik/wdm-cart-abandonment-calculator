@@ -18,12 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Define plugin constants
+// Define plugin constants.
 define( 'WDM_CAC_VERSION', '1.0.0' );
 define( 'WDM_CAC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WDM_CAC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-// Include required files
+// Include required files.
 require_once WDM_CAC_PLUGIN_DIR . 'includes/class-database-setup.php';
 require_once WDM_CAC_PLUGIN_DIR . 'includes/class-cart-tracker.php';
 require_once WDM_CAC_PLUGIN_DIR . 'includes/class-admin-interface.php';
@@ -103,17 +103,17 @@ class WDM_Cart_Abandonment_Calculator {
 	 */
 	public function woocommerce_not_found_notice() {
 		?>
-        <div class="error">
-            <p>
-                <?php
-                echo esc_html__(
-                    'WDM Cart Abandonment Calculator requires WooCommerce to be installed and active.',
-                    'wdm-cart-abandonment-calculator'
-                );
-                ?>
-            </p>
-        </div>
-        <?php
+		<div class="error">
+			<p>
+				<?php
+				echo esc_html__(
+					'WDM Cart Abandonment Calculator requires WooCommerce to be installed and active.',
+					'wdm-cart-abandonment-calculator'
+				);
+				?>
+			</p>
+		</div>
+		<?php
 	}
 }
 
